@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D player;
+    private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sprite;
+
+    [SerializeField] private LayerMask jumpableGround;
 
     //Using [SerializeField] allows the values to be changed in unity, but is better practice than just making the variable public.
     [SerializeField] private float moveSpeed = 7.0f;
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         player.velocity = new Vector2(dirHorizontal * moveSpeed, player.velocity.y);
 
         //Player Jump from Input manager, rather than hard coding spacebar.
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
         }
@@ -94,5 +98,10 @@ public class PlayerMovement : MonoBehaviour
 
         //Cast enum value (0/1/2/3 as mentioned when enum was initialized) as integer for unity animator 
         anim.SetInteger("state", (int)state);
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 }
