@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed = 14.0f;
     private float dirHorizontal = 0f;
 
+    /*Create an enum (a group of read - only constants) to define what type of movement is happening.
+     *This is more efficient than using true or false booleans for fall/jump/run/idle every time and also a lot tidier.
+     *In this instance Idle = 0 | Fall = 1 | Jump = 2 | Run = 3 
+    */
+    private enum MovementState {idle, run, jump, fall }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -51,28 +57,42 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //Test if player is moving horizontally to determine what animation should play
+    //Test if player is moving to determine what animation should play
     private void AnimationState() 
     {
+        MovementState state;
+
         //Moving Right (dirHorizontal is between 0.1 and 1)
         if (dirHorizontal > 0f)
         {
-            anim.SetBool("running", true);
+            state = MovementState.run;
             sprite.flipX = false;
-
         }
 
         //Moving Left (dirHorizontal is between -1 and -0.1)
         else if (dirHorizontal < 0)
         {
-            anim.SetBool("running", true);
+            state = MovementState.run;
             sprite.flipX = true;
         }
 
         //Idle (dirHorizontal is 0)
         else
         {
-            anim.SetBool("running", false);
+            state = MovementState.idle;
         }
+
+        //Jumping
+        if (player.velocity.y > .1f)
+        {
+            state = MovementState.jump;
+        }
+        else if (player.velocity.y < -.1f)
+        {
+            state = MovementState.fall;
+        }
+
+        //Cast enum value (0/1/2/3 as mentioned when enum was initialized) as integer for unity animator 
+        anim.SetInteger("state", (int)state);
     }
 }
