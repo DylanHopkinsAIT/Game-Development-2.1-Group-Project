@@ -301,8 +301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504092747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.9967, y: 0.4993, z: 0}
-  m_LocalScale: {x: 4.686335, y: 4.5832696, z: 1}
+  m_LocalPosition: {x: 18.0291, y: 0.4993, z: 0}
+  m_LocalScale: {x: 4.703206, y: 4.5832696, z: 1}
   m_Children: []
   m_Father: {fileID: 920434655}
   m_RootOrder: 2
@@ -562,7 +562,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.0031446815, y: 0.0031446815, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -2895,8 +2895,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747996655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.5, z: 0}
-  m_LocalScale: {x: 4.686335, y: 4.5832696, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0.5, z: 0}
+  m_LocalScale: {x: 4.6910214, y: 4.5832696, z: 1}
   m_Children: []
   m_Father: {fileID: 920434655}
   m_RootOrder: 1
