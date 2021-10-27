@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     */
     private enum MovementState {idle, run, jump, fall }
 
+    //These variables are used for the audio source(s).
+    [SerializeField] private AudioSource jumpSound;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -56,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         //Player Jump from Input manager, rather than hard coding spacebar.
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            jumpSound.Play();
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
         }
 

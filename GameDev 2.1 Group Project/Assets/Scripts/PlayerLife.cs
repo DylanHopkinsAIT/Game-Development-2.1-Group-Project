@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour 
 {
+    //The death sound variable.
+    [SerializeField] private AudioSource deathSound;
+
     private Rigidbody2D player;
     private Animator anim; // We use this to switch to the death animation
 
@@ -29,6 +32,7 @@ public class PlayerLife : MonoBehaviour
                                                    * so in making him a static body it disables his movement system but only after he comes into contact with traps
                                                    * while if i was to do it in his 'Rigidbody2d' component he wouldnt be able to move at all */
 
+        deathSound.Play();
         anim.SetTrigger("death"); // This will execute the trigger and cause the death animation
     }
 
