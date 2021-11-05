@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cherry
   - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX
