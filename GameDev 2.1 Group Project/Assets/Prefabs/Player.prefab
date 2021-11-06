@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 5089451337937787934}
   - component: {fileID: 5089451337937787933}
   - component: {fileID: 5089451337937787932}
+  - component: {fileID: 4670832177309415424}
+  - component: {fileID: 3810562126833311966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -490,3 +492,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4670832177309415424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089451337937787927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c8e8ba4c8284840bc5d9bb55a70a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyCount: 0
+--- !u!114 &3810562126833311966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089451337937787927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b077343f3f69344a4e95e9cc27710e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HasJumpBoost: 0
+  JBforce: 60
