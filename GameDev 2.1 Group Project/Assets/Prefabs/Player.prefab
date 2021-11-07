@@ -155,7 +155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 7
-  jumpSpeed: 14
+  jumpSpeed: 16
   HasJumpBoost: 0
   JBforce: 45
   jumpSound: {fileID: 5089451337937787934}
