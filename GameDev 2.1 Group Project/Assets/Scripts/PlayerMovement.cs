@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     //These variables are used for the audio source(s).
     [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource jbSound;
 
     // Start is called before the first frame update
     private void Start()
@@ -128,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "JumpBoost")
         {
+            jbSound.Play();
             HasJumpBoost = true;
             Destroy(collision.gameObject);
         }

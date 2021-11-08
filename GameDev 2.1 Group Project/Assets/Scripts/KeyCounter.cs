@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyCounter : MonoBehaviour
 {
     [SerializeField]private int KeyCount = 0;
+    [SerializeField]private AudioSource keySound;
 
     void Update()
     {
@@ -17,6 +18,7 @@ public class KeyCounter : MonoBehaviour
         {
             KeyCount++;
             Destroy(collision.gameObject);
+            keySound.Play();
         }
     }
 
