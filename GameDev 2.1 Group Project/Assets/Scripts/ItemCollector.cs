@@ -16,7 +16,7 @@ public class ItemCollector : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Cherry") || collision.gameObject.CompareTag("Key")) // checks if the tag is "Cherry"
+        if (collision.gameObject.CompareTag("Cherry")) // checks if the tag is "Cherry"
         {
             cherrySound.Play();
             Destroy(collision.gameObject); // destroys the cherry object
