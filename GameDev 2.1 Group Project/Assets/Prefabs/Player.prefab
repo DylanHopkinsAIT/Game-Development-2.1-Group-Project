@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5089451337937787934}
   - component: {fileID: 5089451337937787933}
   - component: {fileID: 5089451337937787932}
+  - component: {fileID: 4670832177309415424}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,7 +155,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 7
-  jumpSpeed: 14
+  jumpSpeed: 16
+  HasJumpBoost: 0
+  JBforce: 45
   jumpSound: {fileID: 5089451337937787934}
 --- !u!95 &5089451337937787929
 Animator:
@@ -490,3 +493,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4670832177309415424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089451337937787927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c8e8ba4c8284840bc5d9bb55a70a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyCount: 0

@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed = 14.0f;
     private float dirHorizontal = 0f;
 
+    [SerializeField] private bool HasJumpBoost = false;
+    [SerializeField] private float JBforce = 45.0f;
+
     /*Create an enum (a group of read - only constants) to define what type of movement is happening.
      *This is more efficient than using true or false booleans for fall/jump/run/idle every time and also a lot tidier.
      *In this instance Idle = 0 | Fall = 1 | Jump = 2 | Run = 3 
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CharacterMovement();
         AnimationState();
+        JumpBoostAbility();
     }
 
     /* Character Movement Script 
@@ -63,6 +67,17 @@ public class PlayerMovement : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
         }
 
+    }
+
+    private void JumpBoostAbility()
+    {
+        if (HasJumpBoost == true && IsGrounded())
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * JBforce, ForceMode2D.Impulse);
+            }
+        }
     }
 
     //Test if player is moving to determine what animation should play
@@ -107,5 +122,14 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "JumpBoost")
+        {
+            HasJumpBoost = true;
+            Destroy(collision.gameObject);
+        }
     }
 }

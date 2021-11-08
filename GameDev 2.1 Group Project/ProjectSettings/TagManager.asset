@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Cherry
   - Trap
+  - Enemy
+  - Lock
+  - Key
+  - JumpPad
+  - JumpBoost
+  - sLock
   layers:
   - Default
   - TransparentFX
