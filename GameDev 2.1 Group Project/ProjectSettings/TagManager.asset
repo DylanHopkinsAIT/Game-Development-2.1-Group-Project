@@ -12,6 +12,7 @@ TagManager:
   - JumpPad
   - JumpBoost
   - sLock
+  - GM
   layers:
   - Default
   - TransparentFX

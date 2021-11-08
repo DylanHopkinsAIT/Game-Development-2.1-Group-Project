@@ -16,12 +16,18 @@ public class ItemCollector : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Cherry") || collision.gameObject.CompareTag("Key")) // checks if the tag is "Cherry"
+        if (collision.gameObject.CompareTag("Cherry") ) // checks if the tag is "Cherry"
         {
             cherrySound.Play();
             Destroy(collision.gameObject); // destroys the cherry object
             cherries++; // increases the cherry counter
+            Debug.Log("Cherries: " + cherries);
             cherriesText.text = "Cherries: " + cherries; // updates the UI text on screen
+        }
+        if(collision.gameObject.CompareTag("Key"))
+        {
+            cherrySound.Play();
+            Destroy(collision.gameObject);
         }
     }
 }
